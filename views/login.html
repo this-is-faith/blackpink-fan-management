@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111111" />
+    <title>Log in | BLACKPINK Fan Management System</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/login.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="welcome-panel" aria-labelledby="welcome-title">
+        <div class="brand"><span class="brand-mark" aria-hidden="true">B</span> BLACKPINK <span class="brand-light">FANS</span></div>
+        <div class="welcome-content">
+          <p class="eyebrow">A space for the community</p>
+          <h1 id="welcome-title">Welcome to your fan community.</h1>
+          <p>One place to connect, manage your membership, and celebrate all four members.</p>
+          <div class="member-tags" aria-label="BLACKPINK members">
+            <span>Jisoo</span><span>Jennie</span><span>Rosé</span><span>Lisa</span>
+          </div>
+        </div>
+        <p class="panel-footer">BLACKPINK Fan Management System</p>
+      </section>
+
+      <section class="login-panel" aria-labelledby="login-title">
+        <div class="login-card">
+          <p class="eyebrow">Member access</p>
+          <h2 id="login-title">Log in</h2>
+          <p class="intro">Your community is waiting for you.</p>
+          <p id="login-error" class="form-error" role="alert" hidden>Incorrect email or password, or this account is inactive.</p>
+          <form action="/login" method="post">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="username" placeholder="you@example.com" maxlength="254" required />
+
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required />
+
+            <button type="submit">Log in</button>
+          </form>
+          <p class="setup-note" role="note">Member accounts and full dashboards will be added in the next phases. The development admin can log in now.</p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

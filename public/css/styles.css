@@ -1,0 +1,68 @@
+:root {
+  color-scheme: light;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #171717;
+  background: #f6f6f6;
+  --pink: #d879a5;
+  --pink-dark: #a44270;
+  --ink: #111;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+a, button, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid var(--pink-dark); outline-offset: 3px; }
+button, a { transition: background-color .15s ease, color .15s ease, border-color .15s ease; }
+
+.page-shell { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; }
+.welcome-panel { display: flex; flex-direction: column; justify-content: space-between; gap: 4rem; padding: clamp(2rem, 5vw, 5rem); color: #fff; background: #111; }
+.brand { display: flex; align-items: center; gap: .45rem; font-size: .85rem; font-weight: 800; letter-spacing: .14em; }
+.brand-mark { display: inline-grid; place-items: center; width: 2.2rem; height: 2.2rem; margin-right: .35rem; color: #111; background: #f4a8c7; border-radius: .45rem; font-size: 1.3rem; letter-spacing: 0; }
+.brand-light { color: #f4a8c7; }
+.eyebrow { margin: 0 0 1rem; color: var(--pink-dark); font-size: .75rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+.welcome-panel .eyebrow, .dashboard-intro .eyebrow { color: #f4a8c7; }
+h1 { max-width: 10ch; margin: 0; font-size: clamp(2.8rem, 5vw, 5.5rem); line-height: 1.03; letter-spacing: -.055em; }
+.welcome-content > p:not(.eyebrow) { max-width: 26rem; margin: 1.7rem 0 0; color: #d0d0d0; line-height: 1.7; }
+.member-tags { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 2.2rem; }
+.member-tags span { padding: .55rem .85rem; border: 1px solid #454545; border-radius: 999px; color: #f4a8c7; font-size: .8rem; }
+.panel-footer { margin: 0; color: #888; font-size: .75rem; }
+.login-panel { display: grid; place-items: center; padding: 2rem; }
+.login-card { width: min(100%, 25rem); }
+h2 { margin: 0; font-size: 2.7rem; letter-spacing: -.05em; }
+.intro { margin: .7rem 0 2.5rem; color: #676767; }
+form { display: grid; gap: .75rem; }
+label { font-size: .85rem; font-weight: 700; }
+input { width: 100%; padding: .9rem 1rem; margin-bottom: .65rem; border: 1px solid #d7d7d7; border-radius: .6rem; background: #fff; font: inherit; }
+input::placeholder { color: #999; }
+input:disabled { opacity: 1; background: #f0f0f0; cursor: not-allowed; }
+button { margin-top: .6rem; padding: .95rem 1rem; border: 0; border-radius: .6rem; background: var(--pink-dark); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+button:hover { background: #873357; }
+button:disabled { opacity: .7; cursor: not-allowed; }
+.setup-note { margin: 1.5rem 0 0; padding: 1rem; border-left: 3px solid #d879a5; background: #fceef4; color: #654052; font-size: .85rem; line-height: 1.5; }
+.form-error { padding: .9rem 1rem; border-radius: .6rem; background: #fff0f1; color: #a52a3a; font-size: .85rem; }
+.form-error[hidden] { display: none; }
+.area-page { display: grid; min-height: 100vh; place-items: center; padding: 1.5rem; background: #111; }
+.area-card { width: min(100%, 34rem); padding: clamp(2rem, 5vw, 3.5rem); border-radius: 1rem; background: #fff; }
+.area-card h1 { font-size: clamp(2.4rem, 6vw, 3.5rem); }
+.area-card > p:not(.eyebrow) { color: #666; line-height: 1.6; }
+.area-card form { margin-top: 2rem; }
+.success-message { margin: 0 0 1.5rem; padding: .9rem 1rem; border-radius: .6rem; background: #e6f5ec; color: #247147; font-weight: 700; }
+.error-page { display: grid; min-height: 100vh; place-items: center; padding: 1.5rem; background: #111; }
+.error-card { width: min(100%, 33rem); padding: clamp(2rem, 5vw, 3rem); border-radius: 1rem; background: #fff; }
+.error-card .brand-mark { margin-bottom: 1.7rem; }
+.error-card h1 { max-width: none; font-size: clamp(2.3rem, 6vw, 3.4rem); }
+.error-card > p:not(.eyebrow) { color: #666; line-height: 1.6; }
+.error-home { display: inline-block; margin-top: 1rem; padding: .8rem 1.1rem; border-radius: .6rem; background: var(--pink-dark); color: #fff; font-weight: 700; text-decoration: none; }
+.error-home:hover { background: #873357; }
+
+@media (prefers-reduced-motion: reduce) {
+  button, a { transition: none; }
+}
+
+@media (max-width: 700px) {
+  .page-shell { grid-template-columns: 1fr; }
+  .welcome-panel { min-height: 22rem; gap: 3rem; padding: 2rem; }
+  h1 { max-width: 14ch; font-size: clamp(2.5rem, 9vw, 4rem); }
+  .welcome-content > p:not(.eyebrow), .member-tags, .panel-footer { display: none; }
+  .login-panel { padding: 3rem 1.5rem; }
+}

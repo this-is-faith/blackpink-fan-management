@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %> | BLACKPINK Fan Management System</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+    <link rel="stylesheet" href="/css/members.css" />
+  </head>
+  <body class="dashboard-page">
+    <div class="dashboard-layout">
+      <%- include('../partials/admin-sidebar', { active: 'members' }) %>
+      <div class="dashboard-content">
+        <header class="dashboard-header"><span>Member management</span><span class="header-role">Admin</span></header>
+        <main class="dashboard-main">
+          <a class="back-link" href="/admin/members">← Back to members</a>
+          <% if (notice) { %><p class="success-message" role="status"><%= notice %></p><% } %>
+          <section class="content-card profile-card">
+            <div class="profile-top">
+              <% if (member.profile_picture_url) { %><img class="profile-photo" src="<%= member.profile_picture_url %>" alt="Profile of <%= title %>" referrerpolicy="no-referrer" /><% } else { %><span class="profile-placeholder" aria-hidden="true"><%= member.first_name.slice(0, 1).toUpperCase() %><%= member.last_name.slice(0, 1).toUpperCase() %></span><% } %>
+              <div><p class="eyebrow"><%= memberId %></p><h1><%= title %></h1><span class="status-badge <%= status %>"><%= status %></span></div>
+            </div>
+            <div class="profile-actions">
+              <a class="primary-link" href="/admin/members/<%= member.id %>/edit">Edit member</a>
+              <% if (status === 'active') { %>
+                <form action="/admin/members/<%= member.id %>/deactivate" method="post" onsubmit="return confirm('Deactivate this member? They will no longer be able to log in.')"><button class="danger-button" type="submit">Deactivate member</button></form>
+              <% } %>
+            </div>
+          </section>
+
+          <section class="content-card details-card" aria-labelledby="details-title">
+            <h2 id="details-title">Member information</h2>
+            <dl class="details-grid">
+              <div><dt>Email</dt><dd><%= member.email %></dd></div>
+              <div><dt>Birthdate</dt><dd><%= member.birthdate %></dd></div>
+              <div><dt>Age</dt><dd><%= age %></dd></div>
+              <div><dt>Gender</dt><dd><%= member.gender || 'Not provided' %></dd></div>
+              <div><dt>Country</dt><dd><%= member.country %></dd></div>
+              <div><dt>City</dt><dd><%= member.city %></dd></div>
+              <div><dt>Favorite member</dt><dd><%= member.favorite_member %></dd></div>
+              <div><dt>Date joined</dt><dd><%= member.date_joined %></dd></div>
+              <div><dt>Membership status</dt><dd><%= status %></dd></div>
+              <div class="full-width"><dt>Short bio</dt><dd><%= member.short_bio || 'No bio added.' %></dd></div>
+            </dl>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

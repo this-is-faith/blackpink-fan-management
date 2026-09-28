@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %> | BLACKPINK Fan Management System</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+    <link rel="stylesheet" href="/css/members.css" />
+  </head>
+  <body class="dashboard-page">
+    <div class="dashboard-layout">
+      <%- include('../partials/admin-sidebar', { active: 'members' }) %>
+      <div class="dashboard-content">
+        <header class="dashboard-header"><span>Member management</span><span class="header-role">Admin</span></header>
+        <main class="dashboard-main">
+          <a class="back-link" href="<%= mode === 'new' ? '/admin/members' : '/admin/members/' + values.id %>">← Back to <%= mode === 'new' ? 'members' : 'profile' %></a>
+          <div class="page-heading"><div><p class="eyebrow">Member details</p><h1><%= title %></h1><p><%= mode === 'new' ? 'Create an account and profile for a new fan.' : 'Update this member’s information.' %></p></div></div>
+
+          <form class="content-card member-form" action="<%= action %>" method="post">
+            <% if (errors.length) { %>
+              <div class="error-summary" role="alert">
+                <strong>Please fix these details:</strong>
+                <ul><% errors.forEach((error) => { %><li><%= error %></li><% }) %></ul>
+              </div>
+            <% } %>
+
+            <fieldset>
+              <legend>Account</legend>
+              <div class="form-grid">
+                <div class="form-field"><label for="email">Email address *</label><input id="email" name="email" type="email" value="<%= values.email || '' %>" maxlength="254" autocomplete="email" required /></div>
+                <% if (mode === 'new') { %>
+                  <div class="form-field"><label for="password">Initial password *</label><input id="password" name="password" type="password" minlength="12" maxlength="128" autocomplete="new-password" required /><small>At least 12 characters. Share it privately with the member.</small></div>
+                <% } %>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Profile</legend>
+              <div class="form-grid">
+                <div class="form-field"><label for="first_name">First name *</label><input id="first_name" name="first_name" value="<%= values.first_name || '' %>" maxlength="60" required /></div>
+                <div class="form-field"><label for="last_name">Last name *</label><input id="last_name" name="last_name" value="<%= values.last_name || '' %>" maxlength="60" required /></div>
+                <div class="form-field"><label for="birthdate">Birthdate *</label><input id="birthdate" name="birthdate" type="date" value="<%= values.birthdate || '' %>" max="<%= new Date().toISOString().slice(0, 10) %>" required /><small>Age is calculated from this date.</small></div>
+                <div class="form-field"><label for="gender">Gender <span class="optional">optional</span></label><input id="gender" name="gender" value="<%= values.gender || '' %>" maxlength="40" /></div>
+                <div class="form-field"><label for="country">Country *</label><input id="country" name="country" value="<%= values.country || '' %>" maxlength="80" required /></div>
+                <div class="form-field"><label for="city">City *</label><input id="city" name="city" value="<%= values.city || '' %>" maxlength="80" required /></div>
+                <div class="form-field"><label for="favorite_member">Favorite BLACKPINK member *</label><select id="favorite_member" name="favorite_member" required><option value="">Choose one</option><% favorites.forEach((favorite) => { %><option value="<%= favorite %>" <%= values.favorite_member === favorite ? 'selected' : '' %>><%= favorite %></option><% }) %></select></div>
+                <div class="form-field"><label for="profile_picture_url">Profile picture URL <span class="optional">optional</span></label><input id="profile_picture_url" name="profile_picture_url" type="url" value="<%= values.profile_picture_url || '' %>" maxlength="500" placeholder="https://example.com/photo.jpg" /><small>Use an image you have permission to share.</small></div>
+                <div class="form-field full-width"><label for="short_bio">Short bio <span class="optional">optional</span></label><textarea id="short_bio" name="short_bio" maxlength="500" rows="4"><%= values.short_bio || '' %></textarea></div>
+              </div>
+            </fieldset>
+
+            <div class="form-actions"><button type="submit"><%= mode === 'new' ? 'Add member' : 'Save changes' %></button><a class="text-link" href="<%= mode === 'new' ? '/admin/members' : '/admin/members/' + values.id %>">Cancel</a></div>
+          </form>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

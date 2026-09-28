@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %> | BLACKPINK Fan Management System</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+    <link rel="stylesheet" href="/css/members.css" />
+    <link rel="stylesheet" href="/css/portal.css" />
+  </head>
+  <body class="dashboard-page">
+    <div class="dashboard-layout">
+      <%- include('../partials/member-sidebar', { active: 'home' }) %>
+      <div class="dashboard-content">
+        <header class="dashboard-header"><span>My fan community</span><span class="header-role">Member</span></header>
+        <main class="dashboard-main">
+          <section class="dashboard-intro" aria-labelledby="welcome-title">
+            <p class="eyebrow">Member portal</p>
+            <h1 id="welcome-title">Welcome<%= profile ? ', ' + profile.first_name : '' %>!</h1>
+            <p>Your BLACKPINK fan community space.</p>
+          </section>
+
+          <% if (profile) { %>
+            <div class="portal-grid">
+              <section class="content-card" aria-labelledby="membership-title">
+                <p class="eyebrow">Your membership</p>
+                <h2 id="membership-title">Membership details</h2>
+                <dl class="details-grid membership-details">
+                  <div><dt>Member ID</dt><dd><%= memberId %></dd></div>
+                  <div><dt>Status</dt><dd><span class="status-badge <%= profile.membership_status %>"><%= profile.membership_status %></span></dd></div>
+                  <div><dt>Date joined</dt><dd><%= profile.date_joined %></dd></div>
+                  <div><dt>Favorite member</dt><dd><%= profile.favorite_member %></dd></div>
+                </dl>
+              </section>
+              <section class="content-card portal-action-card" aria-labelledby="profile-title">
+                <p class="eyebrow">About you</p>
+                <h2 id="profile-title">Your profile</h2>
+                <p>View your details or update the information you share with the community.</p>
+                <a class="primary-link" href="/member/profile">View my profile</a>
+              </section>
+            </div>
+          <% } else { %>
+            <section class="content-card empty-state"><h2>No profile is linked yet</h2><p>Ask an admin to complete your member profile.</p></section>
+          <% } %>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

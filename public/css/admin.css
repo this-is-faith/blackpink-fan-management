@@ -1,0 +1,52 @@
+.dashboard-page { background: #f6f6f6; }
+.dashboard-layout { display: grid; min-height: 100vh; grid-template-columns: 16rem minmax(0, 1fr); }
+.sidebar { display: flex; flex-direction: column; padding: 2rem 1.2rem; background: #111; color: #fff; }
+.sidebar-brand { color: #fff; text-decoration: none; white-space: nowrap; }
+.side-nav { margin-top: 4rem; }
+.nav-label { margin: 0 0 .9rem 1rem; color: #858585; font-size: .7rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+.nav-item { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: .85rem 1rem; border-radius: .65rem; color: #cacaca; font-size: .9rem; font-weight: 700; text-decoration: none; }
+.nav-item.active { background: #f4a8c7; color: #111; }
+.nav-item small { color: #a4a4a4; font-size: .7rem; font-weight: 400; }
+.sidebar-bottom { margin-top: auto; padding: 2rem 1rem 0; }
+.role-label { color: #aaa; font-size: .8rem; }
+.sidebar-bottom form { margin: .65rem 0 0; }
+.logout-button { width: 100%; margin: 0; padding: .75rem 1rem; border: 1px solid #535353; background: transparent; color: #fff; text-align: left; cursor: pointer; }
+.logout-button:hover, .logout-button:focus-visible { border-color: #f4a8c7; color: #f4a8c7; }
+.dashboard-content { min-width: 0; }
+.dashboard-header { display: flex; align-items: center; justify-content: space-between; min-height: 5.5rem; padding: 0 clamp(1.5rem, 4vw, 4rem); border-bottom: 1px solid #e8e8e8; background: #fff; color: #5a5a5a; font-size: .85rem; }
+.header-role { padding: .5rem .8rem; border-radius: 999px; background: #fceaf2; color: #9e4770; font-weight: 700; }
+.dashboard-main { max-width: 80rem; padding: clamp(2rem, 4vw, 4rem); }
+.dashboard-intro { padding: clamp(2rem, 4vw, 3.3rem); border-radius: 1rem; background: #111; color: #fff; }
+.dashboard-intro h1 { max-width: none; font-size: clamp(2.2rem, 4vw, 3.7rem); }
+.dashboard-intro > p:last-child { margin: 1rem 0 0; color: #c8c8c8; line-height: 1.6; }
+.stats-section { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin-top: 1.5rem; }
+.stat-card { min-width: 0; padding: 1.7rem; border: 1px solid #ededed; border-radius: 1rem; background: #fff; }
+.stat-icon { display: inline-grid; width: 2rem; height: 2rem; place-items: center; border-radius: .5rem; background: #fceaf2; color: #a7517b; font-size: .75rem; font-weight: 800; }
+.stat-card h2 { margin: 1.5rem 0 .65rem; color: #555; font-size: .9rem; font-weight: 700; letter-spacing: 0; }
+.stat-number { display: block; font-size: clamp(2.5rem, 4vw, 3.8rem); line-height: 1; letter-spacing: -.06em; }
+.stat-card p { margin: .8rem 0 0; color: #666; font-size: .8rem; line-height: 1.5; }
+.coming-card { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; margin-top: 1.5rem; padding: 2rem; border: 1px solid #ededed; border-radius: 1rem; background: #fff; }
+.coming-card h2 { margin: 0; font-size: 1.5rem; letter-spacing: -.04em; }
+.coming-card p:last-child { margin: .7rem 0 0; color: #777; font-size: .9rem; line-height: 1.5; }
+.coming-pill { flex: none; padding: .55rem .8rem; border-radius: 999px; background: #fceaf2; color: #9e4770; font-size: .8rem; font-weight: 700; text-decoration: none; }
+
+@media (max-width: 900px) {
+  .dashboard-layout { grid-template-columns: 1fr; }
+  .sidebar { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 1rem; padding: 1rem 1.5rem; }
+  .side-nav { display: flex; gap: .25rem; margin: 0; }
+  .nav-label, .role-label { display: none; }
+  .sidebar-bottom { margin: 0 0 0 auto; padding: 0; }
+  .sidebar-bottom form { margin: 0; }
+  .logout-button { width: auto; }
+}
+
+@media (max-width: 600px) {
+  .sidebar-brand { font-size: .7rem; }
+  .brand-mark { width: 1.8rem; height: 1.8rem; font-size: 1rem; }
+  .sidebar { gap: .6rem; }
+  .side-nav { order: 3; width: 100%; flex-wrap: wrap; }
+  .nav-item { width: auto; padding: .6rem .8rem; }
+  .dashboard-header { min-height: 4rem; }
+  .stats-section { grid-template-columns: 1fr; }
+  .coming-card { align-items: flex-start; flex-direction: column; }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "blackpink-fan-management",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A beginner-friendly fan community management app",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js",
+    "db:init": "node database/init.js",
+    "db:reset-admin": "node database/reset-admin.js",
+    "test": "node --expose-gc --test"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "ejs": "^6.0.1",
+    "express": "^5.1.0",
+    "express-session": "^1.19.0"
+  }
+}

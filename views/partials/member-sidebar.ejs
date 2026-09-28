@@ -1,0 +1,13 @@
+<aside class="sidebar">
+  <a class="brand sidebar-brand" href="/member" aria-label="BLACKPINK Fans member home"><span class="brand-mark" aria-hidden="true">B</span> BLACKPINK <span class="brand-light">FANS</span></a>
+  <nav class="side-nav" aria-label="Member navigation">
+    <p class="nav-label">My space</p>
+    <a class="nav-item <%= active === 'home' ? 'active' : '' %>" href="/member" <% if (active === 'home') { %>aria-current="page"<% } %>>Home</a>
+    <a class="nav-item <%= active === 'profile' ? 'active' : '' %>" href="/member/profile" <% if (active === 'profile') { %>aria-current="page"<% } %>>My profile</a>
+    <a class="nav-item <%= active === 'password' ? 'active' : '' %>" href="/member/password" <% if (active === 'password') { %>aria-current="page"<% } %>>Password</a>
+  </nav>
+  <div class="sidebar-bottom">
+    <span class="role-label">Member account</span>
+    <form action="/logout" method="post"><button class="logout-button" type="submit">Log out</button></form>
+  </div>
+</aside>

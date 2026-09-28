@@ -1,0 +1,12 @@
+<aside class="sidebar">
+  <a class="brand sidebar-brand" href="/admin" aria-label="BLACKPINK Fans dashboard"><span class="brand-mark" aria-hidden="true">B</span> BLACKPINK <span class="brand-light">FANS</span></a>
+  <nav class="side-nav" aria-label="Admin navigation">
+    <p class="nav-label">Workspace</p>
+    <a class="nav-item <%= active === 'dashboard' ? 'active' : '' %>" href="/admin" <% if (active === 'dashboard') { %>aria-current="page"<% } %>>Overview</a>
+    <a class="nav-item <%= active === 'members' ? 'active' : '' %>" href="/admin/members" <% if (active === 'members') { %>aria-current="page"<% } %>>Members</a>
+  </nav>
+  <div class="sidebar-bottom">
+    <span class="role-label">Admin account</span>
+    <form action="/logout" method="post"><button class="logout-button" type="submit">Log out</button></form>
+  </div>
+</aside>

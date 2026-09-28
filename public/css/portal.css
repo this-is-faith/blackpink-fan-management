@@ -1,0 +1,14 @@
+.portal-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
+.portal-grid .content-card { margin-bottom: 0; }
+.portal-grid h2 { margin: 0 0 1.5rem; font-size: 1.5rem; letter-spacing: -.04em; }
+.membership-details { gap: 1.4rem; }
+.portal-action-card { display: flex; flex-direction: column; align-items: flex-start; }
+.portal-action-card p:not(.eyebrow) { margin: 0 0 1.5rem; color: #777; line-height: 1.6; }
+.portal-action-card .primary-link { margin-top: auto; }
+.read-only-note { margin: 2rem 0 0; padding: .9rem 1rem; border-left: 3px solid #d879a5; background: #fceef4; color: #654052; font-size: .85rem; line-height: 1.5; }
+.password-form { max-width: 34rem; }
+.password-form .form-field { margin-bottom: 1.3rem; }
+
+@media (max-width: 800px) {
+  .portal-grid { grid-template-columns: 1fr; }
+}
